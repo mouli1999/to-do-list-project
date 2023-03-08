@@ -5,27 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>to do list</title>
-    <link rel="stylesheet" href="public/app.css">
+    <link rel="stylesheet" href="/public/app.css">
 </head>
 <body>
     <div class="box">
         <h1>To-do list</h1>
     </div>
     <div class="box">
-        <% for(i=0 ; i< ejes.length; i++){ %>
-            <div class="item">
-                <input type="checkbox">
-                <p><%= ejes[i] %></p>
-            </div>
-        
-        <%};%>
+        <% dayej.forEach(function(items){ %>
+            <form action="/delete" method="post">      
+                <div class="item">
+                    <input type="checkbox" name="checkbox1" value="<%= items._id%>" onchange="this.form.submit()">
+                    <p ><%= items.name%></p>
+                </div>
+             </form>
+        <%})%>
 
-       
+      
         
-        <form action="/" method="POST">
+        <form action="/create" method="POST">
             <input type="text" name="ele1" placeholder="Enter the task">    
             <button type="submit">+</button>
         </form>
+
+        <form action="/delete" method="post">    
+              
+            <input type="text" name="ele2" placeholder="Remove the task">    
+            <button type="submit" >-</button>
+            
+        </form>
+        
     </div>
     
 </body>

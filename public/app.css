@@ -31,7 +31,7 @@ h1{
 }
 .item:checked+p{
     text-decoration: line-through;
-    background-color: #A683E3;
+    text-decoration-color: aquamarine;
 }
 .item:last-child{
     border-bottom: 0;
